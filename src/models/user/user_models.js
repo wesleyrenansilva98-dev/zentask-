@@ -4,9 +4,7 @@ export async function createModel(username, email, password_hash) {
   const { rows } = await pool.query(`
     INSERT INTO users(username, email, password_hash)
     VALUES ($1, $2, $3)
-    RETURNING id, username, email, created_at
   `, [username, email, password_hash]);
-  return rows[0];
 }
 
 export async function findByUser(email) {
@@ -23,4 +21,24 @@ export async function authUserData(id) {
     WHERE id = $1
   `, [id]);
   return rows[0];
+}
+
+export async function findByPasswordId(id) {
+  const { rows } = await pool.query(`
+    SELECT password_hash FROM users
+    WHERE id = $1
+  `, [id]);
+  return rows[0];
+}
+
+export async function updatePassword(id, password_hash) {
+  const { rows } = await pool.query(`
+    UPDATE users SET password_hash = $1
+    WHERE id = $2
+  `, [password_hash, id]);
+  return rows[0];
+}
+
+export async function deleteUser(id) {
+  await pool.query(`DELETE FROM users WHERE id = $1`, [id]);
 }

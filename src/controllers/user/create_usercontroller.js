@@ -7,7 +7,6 @@ export async function createUserController(req, res, next) {
     return res.status(201).json({
       success: true,
       message: "conta criada com sucesso",
-      data,
       type: "registered"
     });
   } catch (error) {

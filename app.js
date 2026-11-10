@@ -9,7 +9,7 @@ import { errGlobal } from "./src/middlewares/err.js";
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:4589",
+  origin: "https://zentask-system.onrender.com/",
   credentials: true
 }));
 app.use(helmet());

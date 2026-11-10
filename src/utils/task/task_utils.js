@@ -1,4 +1,4 @@
 export const ERROR_TASK_NOT_EXISTS = [{
-  field: "section",
+  field: "selection",
   information: "task não existe"
 }];

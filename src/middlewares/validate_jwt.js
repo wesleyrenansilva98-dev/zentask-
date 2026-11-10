@@ -13,7 +13,7 @@ export async function authJwt(req, res, next) {
     req.userId = Number(payload.sub);
   } catch (error) {
     res.clearCookie("access_token");
-    next(new AuthError("sessão expirada ou não informada", JWT_INVALID , "auth", 401))
+    return next(new AuthError("sessão expirada ou não informada", JWT_INVALID , "auth", 401))
   }
   next();
 }

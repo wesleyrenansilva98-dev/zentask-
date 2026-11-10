@@ -13,6 +13,7 @@ export async function listTaskModel(id) {
   const { rows } = await pool.query(`
     SELECT id, taskname, description, completed, progress, created_at FROM tasks
     WHERE user_id = $1
+    ORDER BY taskname
   `, [id]);
   return rows;
 }

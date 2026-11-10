@@ -5,7 +5,7 @@ export async function authUserController(req, res) {
   const data = await authUserService(id);
   return res.status(200).json({
     success: true,
-    mensagem: "dados carregados com sucesso",
+    message: "dados carregados com sucesso",
     data,
     type: "request"
   });

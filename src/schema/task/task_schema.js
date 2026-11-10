@@ -8,7 +8,7 @@ export const inputRegisterTask = z.object({
 
 export const inputCompletedTask = z.object({
   task_id: z.int({error: "id inválido"}).min(1, "id inválido"),
-  completed: z.boolean({error: "completed precisar true ou false"})
+  completed: z.boolean({error: "completed precisar ser true ou false"})
 });
 
 export const inputProgressTask = z.object({

@@ -4,8 +4,8 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   max: 10,
   connectionTimeoutMillis: 20000,
-  idleTimeouyMillis: 10000,
-  KeepAlive: true
+  idleTimeoutMillis: 10000,
+  keepAlive: true
 });
 
 pool.on('error', (error) => {
